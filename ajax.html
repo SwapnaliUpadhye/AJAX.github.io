@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax  JS</title>
+</head>
+<body>
+    <div id="maindiv">
+       What is AJAX?
+    </div><p></p>
+    <button onclick="loadDemo()">Click to me load demo file</button>
+
+    <script>
+        function loadDemo(){
+            var server2=new XMLHttpRequest();
+            server2.onreadystatechange=function()  //ananomus function bcoz empty.
+            {
+                 if(this.readyState==4&&this.status==200){
+                    document.getElementById("maindiv").innerHTML=this.responseText;
+                 }
+            }
+            server2.open("GET",'ajaxtext.html',true);  //request
+            server2.send();   //sending request
+        }
+    </script>
+</body>
+</html>
